@@ -167,7 +167,6 @@ void sha256_byte_to_hash(unsigned char* input, int inputLength, unsigned char* o
         sha256_init(&shaHolder);
         sha256_update(&shaHolder, input, inputLength);
         sha256_final(&shaHolder, output);
-        return 0;
 }
 
 

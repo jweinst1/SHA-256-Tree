@@ -1,4 +1,6 @@
-#include "filereader.h"
+#include "FileReader.h"
+#include "SHA256Hash.h"
+#include "TreeHashTools.h"
 
 int main(int argc, char const *argv[]) {
         FILE* testfile;
