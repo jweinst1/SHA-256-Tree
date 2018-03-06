@@ -64,7 +64,7 @@ After this, the hash nodes in the list are reduced, by concatenation and rehashi
 Below is a full print out of the hash result of a file.
 
 ```
-Hasing File at path: testfiles/test2.jpg
+Hashing File at path: testfiles/test2.jpg
 Chunk Hashing completed, elapsed time = 0.056209s
 ---Reducing Hashed File Chunks---
 Hash Reduction Round 1

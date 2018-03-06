@@ -1,4 +1,4 @@
-Hasing File at path: testfiles/test2.jpg
+Hashing File at path: testfiles/test2.jpg
 Chunk Hashing completed, elapsed time = 0.056209s
 ---Reducing Hashed File Chunks---
 Hash Reduction Round 1
