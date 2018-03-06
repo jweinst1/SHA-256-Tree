@@ -88,6 +88,9 @@ TreeHashNode* reduce_hash_list(TreeHashNode* fileHashList)
         TreeHashNode_printinfo(fileHashList);
         printf("Hash Chunk Reducing Finished, elapsed time = %fs\n", (endClock-startClock)/(double)CLOCKS_PER_SEC);
         GarbageStack_flush();
+        printf("Final Checksum Hash = ");
+        for(int j = 0; j < HASH_PART_SIZE; j++) printf("%u", fileHashList->hash[j]);
+        printf("\n~~~~~~~~~\n");
         return fileHashList;
 }
 
