@@ -2,6 +2,7 @@
 #define TREE_HASH_TOOLS_HEADER
 // Header that contains functions for facilitating the tree hash.
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -44,6 +45,18 @@ TreeHashNode* TreeHashNode_append(TreeHashNode* hashNode, unsigned char* newHash
 {
         hashNode->next = TreeHashNode_new(newHash);
         return hashNode->next;
+}
+
+// Prints out investigative and debug info about a hashList.
+void TreeHashNode_printinfo(TreeHashNode* hashList)
+{
+        puts("____Document_Hash_List______");
+        while(hashList != NULL)
+        {
+                printf("HashNode @ %p\n", hashList);
+                hashList = hashList->next;
+        }
+        puts("____________________________");
 }
 
 // Frees all allocated hash nodes in a chain.
