@@ -12,6 +12,7 @@
  * This structure holds hashes that each correspond to 1MB chunk of a file.
  * As each 1MB chunk is read and hashed, a new node is allocated with a new has, and the linked chain
  * is extended. No calls to free() occur until after all the nodes are reduced to a single checksum.
+ * Hashes can be reduced in place.
  */
 struct TreeHashNode
 {
@@ -19,17 +20,6 @@ struct TreeHashNode
         struct TreeHashNode* next;
 };
 typedef struct TreeHashNode TreeHashNode;
-
-/** HASH REDUCER
- * This structure serves as a template for reducing the consecutive layers of hashs in the SHA tree, as two
- * hashes must be concatenated before being reduced to a new hash.
- * @size indicates whether 1 or 2 hashes are currently placed in the reducer.
- */
-typedef struct
-{
-        unsigned char bytes[HASH_PART_SIZE * 2];
-        int size;
-} HashReducer;
 
 // Creates a new TreeHashNode
 TreeHashNode* TreeHashNode_new(unsigned char* hBytes)
@@ -50,10 +40,12 @@ TreeHashNode* TreeHashNode_append(TreeHashNode* hashNode, unsigned char* newHash
 // Prints out investigative and debug info about a hashList.
 void TreeHashNode_printinfo(TreeHashNode* hashList)
 {
+        int counter = 1;
         puts("____Document_Hash_List______");
         while(hashList != NULL)
         {
-                printf("HashNode @ %p\n", hashList);
+                printf("HashNode:(%d) @ %p\n", counter++, hashList);
+                printf("Hash = %*.u\n- - - - - - -\n", HASH_PART_SIZE, hashList->hash);
                 hashList = hashList->next;
         }
         puts("____________________________");
