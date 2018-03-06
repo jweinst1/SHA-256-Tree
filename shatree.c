@@ -27,7 +27,7 @@ void GarbageStack_flush(void)
 // produces a linked list of tree hash nodes of each 1MB chunk of a file.
 TreeHashNode* hash_entire_file(const char* path)
 {
-        printf("Hasing File at path: %s\n", path);
+        printf("Hashing File at path: %s\n", path);
         clock_t startClock, endClock;
         startClock = clock();
         FILE* fileToHash;
