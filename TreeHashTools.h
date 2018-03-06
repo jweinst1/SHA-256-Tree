@@ -1,0 +1,4 @@
+#ifndef TREE_HASH_TOOLS_HEADER
+#define TREE_HASH_TOOLS_HEADER
+
+#endif
