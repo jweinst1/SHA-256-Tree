@@ -18,3 +18,20 @@ This builds an executable in a `bin` dir named `shatree`.
 ## Mechanics
 
 This implementation uses a data structure optimized for hashing larger files and deferring expensive calls to `free()` until after the entire checksum is calculated.
+
+### HashListing
+
+The first process in this implementation is to turn a document into 1MB hashed chunks, which is essentially a linked list of hashes. Here is an example debug-representation of that.
+
+```
+____Document_Hash_List______
+HashNode:(1) @ 0x7f96b9402660
+Hash = 185520110146192269015611140144228249224192322714914120324819582118249211941499127
+- - - - - - -
+HashNode:(2) @ 0x7f96b9402690
+Hash = 312255676321378911615719087129204205887213745121385134163822271991722812221732
+- - - - - - -
+____________________________
+```
+
+Since only two chunks exist in this hash list, the file is just over 1 MB in size.
