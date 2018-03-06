@@ -37,6 +37,8 @@ $ ./bin/shatree testfiles/test1.JPG
 
 This implementation uses a data structure optimized for hashing larger files and deferring expensive calls to `free()` until after the entire checksum is calculated.
 
+This is accomplished by usage a garbage stack, and not freeing any hold hash nodes until the final checksum is completed.
+
 ### HashListing
 
 The first process in this implementation is to turn a document into 1MB hashed chunks, which is essentially a linked list of hashes. Here is an example debug-representation of that.
