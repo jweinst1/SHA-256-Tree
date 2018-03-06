@@ -37,6 +37,17 @@ TreeHashNode* TreeHashNode_append(TreeHashNode* hashNode, unsigned char* newHash
         return hashNode->next;
 }
 
+TreeHashNode* TreeHashNode_pop_next(TreeHashNode* hashNode)
+{
+        TreeHashNode* temp = hashNode->next;
+        if(temp == NULL) return temp;
+        else
+        {
+                hashNode->next = temp->next;
+                return temp;
+        }
+}
+
 // Prints out investigative and debug info about a hashList.
 void TreeHashNode_printinfo(TreeHashNode* hashList)
 {
