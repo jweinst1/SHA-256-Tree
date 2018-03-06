@@ -37,6 +37,9 @@ TreeHashNode* TreeHashNode_append(TreeHashNode* hashNode, unsigned char* newHash
         return hashNode->next;
 }
 
+// Returns and removes the next hash node.
+// This allows old, unwanted hash nodes to be stored in a garbage stack,
+// to defer freeing the memory till after the entire check sum is calculated.
 TreeHashNode* TreeHashNode_pop_next(TreeHashNode* hashNode)
 {
         TreeHashNode* temp = hashNode->next;

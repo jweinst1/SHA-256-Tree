@@ -2,6 +2,8 @@
 #include "SHA256Hash.h"
 #include "TreeHashTools.h"
 
+static TreeHashNode* GARBAGE_STACK = NULL;
+
 int main(int argc, char const *argv[]) {
         FILE* testfile;
         OPEN_BINARY_FILE(testfile, "Makefile");
