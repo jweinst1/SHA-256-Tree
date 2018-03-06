@@ -30,6 +30,14 @@ TreeHashNode* TreeHashNode_new(unsigned char* hBytes)
         return newnode;
 }
 
+// Creates a new empty hash node
+TreeHashNode* TreeHashNode_new_empty(void)
+{
+        TreeHashNode* newnode = malloc(sizeof(TreeHashNode));
+        newnode->next = NULL;
+        return newnode;
+}
+
 // Appends a new hash node to the current node and returns the newly appended node.
 TreeHashNode* TreeHashNode_append(TreeHashNode* hashNode, unsigned char* newHash)
 {
@@ -59,7 +67,9 @@ void TreeHashNode_printinfo(TreeHashNode* hashList)
         while(hashList != NULL)
         {
                 printf("HashNode:(%d) @ %p\n", counter++, hashList);
-                printf("Hash = %*.u\n- - - - - - -\n", HASH_PART_SIZE, hashList->hash);
+                printf("Hash = ");
+                for(int i = 0; i< HASH_PART_SIZE; i++) printf("%u", hashList->hash[i]);
+                puts("\n- - - - - - -");
                 hashList = hashList->next;
         }
         puts("____________________________");
